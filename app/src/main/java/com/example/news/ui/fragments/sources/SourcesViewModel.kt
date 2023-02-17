@@ -9,5 +9,5 @@ import javax.inject.Inject
 class SourcesViewModel @Inject constructor(private val repository: NewsRepository) :
     BaseViewModel() {
 
-    fun fetchSources(q:String) = repository.fetchNews(q)
+    fun fetchSources(q: String) = repository.fetchNews(q)
 }

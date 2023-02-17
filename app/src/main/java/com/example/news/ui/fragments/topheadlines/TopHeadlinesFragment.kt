@@ -11,7 +11,8 @@ import com.example.news.utils.Resources
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TopHeadlinesFragment : BaseFragment<FragmentTopHeadlinesBinding, TopHeadlinesViewModel>(R.layout.fragment_top_headlines) {
+class TopHeadlinesFragment :
+    BaseFragment<FragmentTopHeadlinesBinding, TopHeadlinesViewModel>(R.layout.fragment_top_headlines) {
 
     override val viewModel: TopHeadlinesViewModel by viewModels()
     override val binding by viewBinding(FragmentTopHeadlinesBinding::bind)
@@ -27,9 +28,9 @@ class TopHeadlinesFragment : BaseFragment<FragmentTopHeadlinesBinding, TopHeadli
 
     private fun subscribeTopHeadlines() {
         viewModel.fetchTopHeadlines("top-headlines").observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is Resources.Error -> {
-                    Log.e(it.message,"asd")
+                    Log.e(it.message, "asd")
                 }
                 is Resources.Loading -> {
 

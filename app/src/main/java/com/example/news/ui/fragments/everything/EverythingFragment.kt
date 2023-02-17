@@ -28,9 +28,9 @@ class EverythingFragment :
 
     private fun subscribeToEverything() {
         viewModel.fetchEverything("bitcoin").observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is Resources.Error -> {
-                    Log.e(it.message,"asd")
+                    Log.e(it.message, "asd")
                 }
                 is Resources.Loading -> {
 

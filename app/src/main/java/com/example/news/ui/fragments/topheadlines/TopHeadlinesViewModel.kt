@@ -9,5 +9,5 @@ import javax.inject.Inject
 class TopHeadlinesViewModel @Inject constructor(private val repository: NewsRepository) :
     BaseViewModel() {
 
-    fun fetchTopHeadlines(q:String) = repository.fetchNews(q)
+    fun fetchTopHeadlines(q: String) = repository.fetchNews(q)
 }

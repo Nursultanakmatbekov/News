@@ -11,7 +11,8 @@ import com.example.news.utils.Resources
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SourcesFragment : BaseFragment<FragmentSourcesBinding, SourcesViewModel>(R.layout.fragment_sources) {
+class SourcesFragment :
+    BaseFragment<FragmentSourcesBinding, SourcesViewModel>(R.layout.fragment_sources) {
 
     override val viewModel: SourcesViewModel by viewModels()
     override val binding by viewBinding(FragmentSourcesBinding::bind)
@@ -27,9 +28,9 @@ class SourcesFragment : BaseFragment<FragmentSourcesBinding, SourcesViewModel>(R
 
     private fun subscribeToEverything() {
         viewModel.fetchSources("sources").observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is Resources.Error -> {
-                    Log.e(it.message,"asd")
+                    Log.e(it.message, "asd")
                 }
                 is Resources.Loading -> {
 
