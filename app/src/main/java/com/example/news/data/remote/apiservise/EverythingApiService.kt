@@ -1,11 +1,11 @@
 package com.example.news.data.remote.apiservise
 
-import com.example.news.data.models.EverythingResponse
-import com.example.news.data.models.News
+import com.example.news.data.models.news.EverythingResponse
+import com.example.news.data.models.news.News
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface NewsApiService {
+interface EverythingApiService {
 
     @GET("everything")
     suspend fun fetchEverything(

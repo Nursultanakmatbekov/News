@@ -19,4 +19,14 @@ object NetworkModule {
     @Provides
     fun provideNewsApiService(retrofitClient: RetrofitClient) =
         retrofitClient.provideEverythingApiService()
+
+    @Singleton
+    @Provides
+    fun provideSourcesApiService(retrofitClient: RetrofitClient) =
+        retrofitClient.provideSourcesApiService()
+
+    @Singleton
+    @Provides
+    fun provideTopHeadlinesApiService(retrofitClient: RetrofitClient) =
+        retrofitClient.provideTopHeadlinesApiService()
 }

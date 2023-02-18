@@ -1,6 +1,8 @@
 package com.example.news.data.remote
 
-import com.example.news.data.remote.apiservise.NewsApiService
+import com.example.news.data.remote.apiservise.EverythingApiService
+import com.example.news.data.remote.apiservise.SourcesApiService
+import com.example.news.data.remote.apiservise.TopHeadlinesApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,5 +30,9 @@ class RetrofitClient {
     private fun provideLoggingInterceptor() =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-    fun provideEverythingApiService() = retrofit.create(NewsApiService::class.java)
+    fun provideEverythingApiService() = retrofit.create(EverythingApiService::class.java)
+
+    fun provideSourcesApiService() = retrofit.create(SourcesApiService::class.java)
+
+    fun provideTopHeadlinesApiService() = retrofit.create(TopHeadlinesApiService::class.java)
 }

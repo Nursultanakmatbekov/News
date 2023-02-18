@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.news.data.models.News
+import com.example.news.data.models.news.News
 import com.example.news.databinding.ItemNewsBinding
 
 class NewsAdapter :

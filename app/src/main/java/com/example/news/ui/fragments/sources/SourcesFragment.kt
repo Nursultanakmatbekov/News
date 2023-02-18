@@ -7,6 +7,7 @@ import com.example.news.R
 import com.example.news.base.BaseFragment
 import com.example.news.databinding.FragmentSourcesBinding
 import com.example.news.ui.adapter.NewsAdapter
+import com.example.news.ui.adapter.SourcesAdapter
 import com.example.news.utils.Resources
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,18 +17,18 @@ class SourcesFragment :
 
     override val viewModel: SourcesViewModel by viewModels()
     override val binding by viewBinding(FragmentSourcesBinding::bind)
-    private val sourcesAdapter = NewsAdapter()
+    private val sourcesAdapter = SourcesAdapter()
 
     override fun setupSubscribes() {
-        subscribeToEverything()
+        subscribeSources()
     }
 
     override fun initialize() = with(binding.recView) {
         adapter = sourcesAdapter
     }
 
-    private fun subscribeToEverything() {
-        viewModel.fetchSources("sources").observe(viewLifecycleOwner) {
+    private fun subscribeSources() {
+        viewModel.fetchSources("sources").observe(viewLifecycleOwner) { it ->
             when (it) {
                 is Resources.Error -> {
                     Log.e(it.message, "asd")
@@ -37,7 +38,7 @@ class SourcesFragment :
                 }
                 is Resources.Success -> {
                     it.data?.let {
-                        sourcesAdapter.submitList(it.articles)
+                        sourcesAdapter.submitList(it.sources)
                     }
                 }
             }

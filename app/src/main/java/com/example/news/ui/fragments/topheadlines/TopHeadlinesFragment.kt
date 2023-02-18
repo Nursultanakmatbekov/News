@@ -27,7 +27,7 @@ class TopHeadlinesFragment :
     }
 
     private fun subscribeTopHeadlines() {
-        viewModel.fetchTopHeadlines("top-headlines").observe(viewLifecycleOwner) {
+        viewModel.fetchTopHeadlines("america").observe(viewLifecycleOwner) {
             when (it) {
                 is Resources.Error -> {
                     Log.e(it.message, "asd")
